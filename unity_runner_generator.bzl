@@ -59,9 +59,9 @@ def cmock_generate(prefix, src, **kwargs):
       **kwargs
   )
 
-def runner_unity_cmock(prefix, deps, **kwargs):
+def runner_unity_cmock(name, prefix, deps, **kwargs):
   unity_runner(
-     name = "runner_"+prefix,
+     name = name,
      src = prefix+".c",
   )
   native.cc_test(
@@ -83,9 +83,9 @@ def runner_unity_cmock(prefix, deps, **kwargs):
     **kwargs
   )
 
-def runner_gtest_fff(prefix, deps, **kwargs):
+def runner_gtest_fff(name, prefix, deps, **kwargs):
   native.cc_test(
-    name = prefix+"_gtest",
+    name = name,
     srcs = [
         prefix+".c",
     ],
