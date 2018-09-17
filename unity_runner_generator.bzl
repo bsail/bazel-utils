@@ -58,3 +58,28 @@ def cmock_generate(prefix, src, **kwargs):
       type = "c",
       **kwargs
   )
+
+def runner_unity_cmock(prefix, deps, **kwargs):
+  unity_runner(
+     name = "runner_"+prefix,
+     src = prefix+".c",
+  )
+  native.cc_test(
+    name = prefix+"_unity",
+    srcs = [
+        prefix+".c",
+        "runner_"+prefix+".c",
+    ],
+    copts = [
+        "-Iexternal/unity/src/",
+        "-Iexternal/unity/extras/fixture/src/",
+        "-Iexternal/cmock/src/",
+    ],
+    deps = [
+        "@unity//:unity",
+        "@unity//:unity_framework",
+        "@cmock//:cmock",
+        deps,
+    ],
+    **kwargs
+  )
