@@ -33,12 +33,12 @@ def cmock_generator(prefix, src, where, type, **kwargs):
         "@unity//:readme",
         "@unity//:auto",
         "@cmock//:readme",
-        "//utils/mock:cmock_config",
+        ":mock:cmock_config",
     ],
     cmd = "export UNITY_DIR=$$(pwd)/$$(dirname $(location @unity//:readme)) && \
     export CMOCK_DIR=$$(pwd)/$$(dirname $(location @cmock//:readme)) && \
     export MOCK_OUT=. && \
-    ruby $(location @cmock//:cmock_rb) -o$(location //utils/mock:cmock_config) $< && \
+    ruby $(location @cmock//:cmock_rb) -o$(location :mock:cmock_config) $< && \
     cat mock_"+prefix+"."+type+" > $@",
     **kwargs
   )
