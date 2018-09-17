@@ -1,5 +1,5 @@
 load("@avr_tools//tools/avr:hex.bzl", "hex", "eeprom", "listing")
-load("//utils:unity_runner_generator.bzl", "cmock_generate")
+load(":unity_runner_generator.bzl", "cmock_generate")
 
 def custom_cc_libary(name, srcs, hdr, **kwargs):
   """Create a Unity test runner for the src source file.
