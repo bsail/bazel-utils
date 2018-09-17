@@ -79,7 +79,6 @@ def runner_unity_cmock(prefix, deps, **kwargs):
         "@unity//:unity",
         "@unity//:unity_framework",
         "@cmock//:cmock",
-        deps,
-    ],
+    ] + deps,
     **kwargs
   )
