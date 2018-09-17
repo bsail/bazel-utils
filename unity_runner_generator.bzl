@@ -82,3 +82,20 @@ def runner_unity_cmock(prefix, deps, **kwargs):
     ] + deps,
     **kwargs
   )
+
+def runner_gtest_fff(prefix, deps, **kwargs):
+  native.cc_test(
+    name = prefix+"_gtest",
+    srcs = [
+        prefix+".c",
+    ],
+    copts = [
+        "-Iexternal/gtest/include",
+    ],
+    deps = [
+        "@gtest//:gtest",
+        "@gtest//:gtest_main", # Only if hello_test.cc has no main()
+        "@fff//:fff",
+    ] + deps,
+    **kwargs
+  )
