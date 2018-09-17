@@ -1,3 +1,20 @@
+UNITY_COPTS = [
+        "-Iexternal/unity/src/",
+        "-Iexternal/unity/extras/fixture/src/",
+        "-Iexternal/cmock/src/",
+    ]
+UNITY_DEPS = [
+        "@unity//:unity",
+        "@unity//:unity_framework",
+        "@cmock//:cmock",
+    ]
+GTEST_COPTS = ["-Iexternal/gtest/include"]
+GTEST_DEPS = [
+        "@gtest//:gtest",
+        "@gtest//:gtest_main", # Only if hello_test.cc has no main()
+        "@fff//:fff",
+    ]
+
 def unity_runner(name, src, **kwargs):
   """Create a Unity test runner for the src source file.
 
