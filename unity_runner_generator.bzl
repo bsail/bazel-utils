@@ -61,11 +61,11 @@ def cmock_generate(prefix, src, **kwargs):
 
 def runner_unity_cmock(name, prefix, deps, **kwargs):
   unity_runner(
-     name = name,
+     name = "runner_"+prefix,
      src = prefix+".c",
   )
   native.cc_test(
-    name = prefix+"_unity",
+    name = name,
     srcs = [
         prefix+".c",
         "runner_"+prefix+".c",
