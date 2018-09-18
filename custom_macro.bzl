@@ -1,7 +1,7 @@
 load("@avr_tools//tools/avr:hex.bzl", "hex", "eeprom", "listing")
 load(":unity_runner_generator.bzl", "cmock_generate")
 
-def custom_cc_libary(name, srcs, hdr, **kwargs):
+def custom_cc_library(name, srcs, hdr, **kwargs):
   """Create a Unity test runner for the src source file.
 
   The generated file is prefixed with 'runner_'.
@@ -24,7 +24,7 @@ def custom_cc_libary(name, srcs, hdr, **kwargs):
     **kwargs
   )
 
-def custom_cc_libary_mock(name, hdr, deps, srcs, **kwargs):
+def custom_cc_library_mock(name, hdr, deps, srcs, **kwargs):
   """Create a Unity test runner for the src source file.
 
   The generated file is prefixed with 'runner_'.
