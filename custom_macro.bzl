@@ -24,7 +24,7 @@ def custom_cc_libary(name, srcs, hdr, **kwargs):
     **kwargs
   )
 
-def custom_cc_libary_mock(name, hdr, deps, **kwargs):
+def custom_cc_libary_mock(name, hdr, deps, srcs, **kwargs):
   """Create a Unity test runner for the src source file.
 
   The generated file is prefixed with 'runner_'.
@@ -33,7 +33,7 @@ def custom_cc_libary_mock(name, hdr, deps, **kwargs):
     name = "mock_"+name,
     srcs = [
         "src/mock_"+name+".c",
-        ],
+        ] + srcs,
     hdrs = [
         "inc/mock_"+name+".h",
         hdr,
