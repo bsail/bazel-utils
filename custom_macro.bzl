@@ -49,6 +49,6 @@ def custom_cc_libary_mock(name, hdr, deps, **kwargs):
     ],
     deps = [
         "@cmock//:cmock",
-    ],
+    ] + deps,
     **kwargs
   )
